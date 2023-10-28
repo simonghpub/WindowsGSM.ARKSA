@@ -11,4 +11,4 @@
 2. Don't expect it to work yet, they're constantly updating the server and game files.
 
 ### License
-This project is licensed under the MIT License - see the [LICENSE.md] file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/simonghpub/WindowsGSM.ARKSA/blob/main/LICENSE) file for details
