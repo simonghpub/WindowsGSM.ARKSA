@@ -59,13 +59,12 @@ namespace WindowsGSM.Plugins
             var param = new StringBuilder();
 
             param.Append(string.IsNullOrWhiteSpace(_serverData.ServerMap) ? string.Empty : _serverData.ServerMap);
-            param.Append("?listen");
 
-            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $" ?SessionName=\"{_serverData.ServerName}\"");
-            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $" ?MultiHome=\"{_serverData.ServerIP}\"");
-            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $" ?Port=\"{_serverData.ServerPort}\"");
-            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $" ?MaxPlayers=\"{_serverData.ServerMaxPlayer}\"");
-            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $" ?QueryPort=\"{_serverData.ServerQueryPort}\"");
+            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?SessionName=\"{_serverData.ServerName}\"");
+            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?MultiHome=\"{_serverData.ServerIP}\"");
+            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?Port=\"{_serverData.ServerPort}\"");
+            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?MaxPlayers=\"{_serverData.ServerMaxPlayer}\"");
+            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?QueryPort=\"{_serverData.ServerQueryPort}\"");
             param.Append($"{_serverData.ServerParam} -server -log");
  
             // Prepare process
