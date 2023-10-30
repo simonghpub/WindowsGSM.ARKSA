@@ -16,7 +16,7 @@ namespace WindowsGSM.Plugins
             name = "WindowsGSM.ARKSA",
             author = "Simonth",
             description = "WindowsGSM plugin for a ARK Survival Ascended Dedicated server",
-            version = "0.1",
+            version = "0.2",
             url = "https://github.com/simonghpub/WindowsGSM.ARKSA",
             color = "#9eff99"
         };
@@ -42,7 +42,7 @@ namespace WindowsGSM.Plugins
 
         // - Game server default values
         public string Port = "7820"; // Default port
-        public string QueryPort = "7821"; // Default query port - May not be used
+        public string QueryPort = null; // Default query port - May not be used
         public string Defaultmap = "TheIsland_WP"; // Default map
         public string Maxplayers = "64"; // Default maxplayers
         public string Additional = ""; // Additional server start parameter
@@ -60,12 +60,12 @@ namespace WindowsGSM.Plugins
 
             param.Append(string.IsNullOrWhiteSpace(_serverData.ServerMap) ? string.Empty : _serverData.ServerMap);
 
-            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?SessionName=\"{_serverData.ServerName}\"");
-            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?MultiHome=\"{_serverData.ServerIP}\"");
-            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?Port=\"{_serverData.ServerPort}\"");
-            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?MaxPlayers=\"{_serverData.ServerMaxPlayer}\"");
-            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?QueryPort=\"{_serverData.ServerQueryPort}\"");
-            param.Append($"{_serverData.ServerParam} -server -log");
+            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?SessionName=\"\"\"{_serverData.ServerName}\"\"\"");
+
+            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?Port={_serverData.ServerPort}");
+            param.Append(string.IsNullOrWhiteSpace(_serverData.ServerName) ? string.Empty : $"?MaxPlayers={_serverData.ServerMaxPlayer}");
+
+            param.Append($"{_serverData.ServerParam}");
  
             // Prepare process
             var p = new Process
@@ -78,8 +78,10 @@ namespace WindowsGSM.Plugins
                     FileName = ServerPath.GetServersServerFiles(_serverData.ServerID, StartPath),
                     Arguments = param.ToString()
                 },
+
                 EnableRaisingEvents = true
             };
+
 
             // Start process
             try
@@ -102,6 +104,18 @@ namespace WindowsGSM.Plugins
             {
                 p.Kill();
             });
+        }
+
+        public string GetLocalBuild()
+        {
+            var steamCMD = new Installer.SteamCMD();
+            return steamCMD.GetLocalBuild(_serverData.ServerID, AppId);
+        }
+
+        public async Task<string> GetRemoteBuild()
+        {
+            var steamCMD = new Installer.SteamCMD();
+            return await steamCMD.GetRemoteBuild(AppId);
         }
 
     }
