@@ -10,7 +10,7 @@
 1. Click **[RELOAD PLUGINS]** button or restart WindowsGSM
 
 ## Example, for the server parameters, "Server Start Param":
-?RCONEnabled=true?RCONPort=7825?AltSaveDirectoryName=save_test4 -mods=928708 -NoTransferFromFiltering -servergameloginincludetribelogs -servergamelog -UseDynamicConfig -automanagedmods
+```?RCONEnabled=true?RCONPort=7825?AltSaveDirectoryName=save_test4 -mods=928708 -NoTransferFromFiltering -servergameloginincludetribelogs -servergamelog -UseDynamicConfig -automanagedmods```
 
 ### License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/simonghpub/WindowsGSM.ARKSA/blob/main/LICENSE) file for details
