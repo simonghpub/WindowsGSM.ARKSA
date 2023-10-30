@@ -8,7 +8,9 @@
 ## Installation
 1. Move **ARKSA.cs** folder to **plugins** folder
 1. Click **[RELOAD PLUGINS]** button or restart WindowsGSM
-2. Don't expect it to work yet, they're constantly updating the server and game files.
+
+## Example, for the server parameters, "Server Start Param":
+?RCONEnabled=true?RCONPort=7825?AltSaveDirectoryName=save_test4 -mods=928708 -NoTransferFromFiltering -servergameloginincludetribelogs -servergamelog -UseDynamicConfig -automanagedmods
 
 ### License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/simonghpub/WindowsGSM.ARKSA/blob/main/LICENSE) file for details
