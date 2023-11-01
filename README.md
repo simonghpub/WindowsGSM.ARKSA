@@ -2,6 +2,10 @@
 
 🧩 WindowsGSM plugin for supporting ARK: Survival Ascended Dedicated Server
 
+As I don't have plans to update this plugin any further here are a link to a alternative plugin:
+
+[WindowsGSM.ArkSurvivalAscended by sh1ny](https://github.com/sh1ny/WindowsGSM.ArkSurvivalAscended)
+
 ## Requirements
 [WindowsGSM](https://github.com/WindowsGSM/WindowsGSM) >= 1.21.0
 
